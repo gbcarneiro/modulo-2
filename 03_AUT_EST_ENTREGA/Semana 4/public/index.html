@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./script.js"></script>
+    <title>Currículo</title>
+</head>
+<body>
+
+    <header>
+        <h1>Gabriel Carneiro</h1>
+        <h2>Estudante de Ciência da Computação</h2>
+
+        <p> 
+            Brasileiro <br/> 
+            18 anos <br/> 
+            Solteiro <br/> 
+            <a href="mailto:gabrielcarneiro@sou.inteli.edu.br" target="_blank">gabriel.carneiro@sou.inteli.edu.br</a>
+        </p>
+    </header>
+    
+    <div id="infos">
+        <div id="experiencia-profissional">
+            <div class="row">
+                <h1>Experiência Profissional</h1> <button class="btn" onclick="showExperience()"><img src="./assets/Expand.svg" alt=""></button>
+            </div>
+            <div id="expContent" class="hiddenExpContent">
+                <h2>Trabalho Freelancer com mídias sociais (2020 - momento)</h2>
+                <p>Produção de conteúdo váriado</p>
+            </div>
+        </div>
+
+        <div id="formacao">
+            <div class="row">
+                <h1>Formação Acadêmica</h1> <button class="btn" onclick="showStudies()"><img src="./assets/Expand.svg" alt=""></button>
+            </div>
+            <div id="studiesContent" class="hiddenStContent" >
+                <h2>Ciência da Computação</h2>
+                <p>Bacharelado em Ciência da Computação pelo Instituto de Tecnologia e Liderança (INTELI) (2022-2025)</p>
+                <h2>Colégio Torricelli</h2>
+                <p>Ensino Médio (2019-2021)</p>
+            </div>
+        </div>
+
+        <div id="idiomas">
+            <div class="row">
+                <h1>Idiomas</h1> <button class="btn" onclick="showLanguages()"><img src="./assets/Expand.svg" alt=""></button>
+            </div>
+            <div id="langContent" class="hiddenLangContent">
+                <p>Inglês (avançado)</p>
+                <p>Espanhol (básico)</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
