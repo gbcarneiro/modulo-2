@@ -1,13 +1,13 @@
-
+//Há uma função para cada área do currículo, e foi utilizado `let` ao invés de var, para que o nome fosse mantido durante todo o projeto sem nenhum problema
 function showStudies() {
-    var divhidden = $("#studiesContent")
-    var row = $(".row")
-
-    if (divhidden.attr("class") == "normal") {
-        divhidden.attr("class", "hiddenStContent")
+    let divId = $("#studiesContent") //Aqui entra a parte do JQuery para coletar o item com a id studiesContent
+  
+    // Algoritmo para mudar a classe da div no html, fazendo com que seu display esteja como none, ou normal
+    if (divId.attr("class") == "normal") {
+        divId.attr("class", "hiddenStContent")
 
     } else {
-        divhidden.attr("class", "normal")
+        divId.attr("class", "normal")
     }
 }
 
