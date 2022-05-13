@@ -10,6 +10,8 @@ Minhas entregas estão definidas aqui:
 <a href="https://github.com/gbcarneiro/modulo-2/tree/main/02_TUTORIAL/Semana%203"> 04/05/2022 -  Exercício de personalização da Etapa 2</a>
 
 <a href="https://github.com/gbcarneiro/modulo-2/tree/main/02_TUTORIAL/Semana%204"> 13/05/2022 - Etapa 4 do Tutorial </a>
+
+<a href="https://github.com/gbcarneiro/modulo-2/tree/main/03_AUT_EST_ENTREGA/Semana%204"> 13/05/2022 -  Exercício de personalização da Etapa 3</a>
 ## Obrigatórios
 <a href="https://github.com/gbcarneiro/modulo-2/tree/main/03_AUT_EST_ENTREGA/Semana%202"> 26/04/2022 - Exercício de personalização da Etapa 1 </a>
 
