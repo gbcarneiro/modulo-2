@@ -49,5 +49,10 @@ function dados() {
         $('#nacionalidade').html(res.Nacionalidade)
         $('#contato').html(res.Email)
     })
-  
+ 
+    $.ajax({
+        url: 'http://localhost:3001/dados', 
+        method: 'get', 
+        
+    });
 }
