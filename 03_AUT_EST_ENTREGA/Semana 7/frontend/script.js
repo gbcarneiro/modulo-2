@@ -39,20 +39,24 @@ function showLanguages() {
 
 
 // rotas 
+function loadData() {
+    var xhttp = new XMLHttpRequest() 
 
-function dados() {
-    $.get('http://localhost:3001/dados', (res) => {
-        console.log(res)
+    
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            const res = JSON.parse(xhttp.responseText)
 
-        $('#nome').html(res.Nome)
-        $('#titulo').html(res.Titulo)
-        $('#nacionalidade').html(res.Nacionalidade)
-        $('#contato').html(res.Email)
-    })
- 
-    $.ajax({
-        url: 'http://localhost:3001/dados', 
-        method: 'get', 
+            $('#nome').html(res.Nome)
+            $('#titulo').html(res.Titulo)
+            $('#nacionalidade').html(res.Nacionalidade)
+            $('#contato').html(res.Email)
+            
+        }
         
-    });
+    }
+    
+    xhttp.open('GET', 'http://localhost:3001/dados', false)
+    xhttp.send()
+    
 }
