@@ -41,7 +41,6 @@ function showLanguages() {
 // rotas 
 function loadData() {
     var xhttp = new XMLHttpRequest() 
-
     
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -50,15 +49,12 @@ function loadData() {
             $('#nome').html(res.Nome)
             $('#titulo').html(res.Titulo)
             $('#nacionalidade').html(res.Nacionalidade)
-            $('#contato').html(res.Email)
-            
+            $('#contato').html(res.Email)   
         }
-        
     }
     
     xhttp.open('GET', 'http://localhost:3001/dados', false)
     xhttp.send()
-    
 }
 
 function sendMessage() {
@@ -122,6 +118,20 @@ function atualizarIdiomas(idiomas) {
     div.innerHTML += '<button style="margin: 10px 0px;" onclick="addLangInput()">Adicionar Idioma</button>'
 
     for (let i = 0; i < idiomas.length; i++) {
-        div.innerHTML += `<p>${idiomas[i].idioma} (${idiomas[i].nivel})</p>`
+        div.innerHTML += `<p>${idiomas[i].idioma} (${idiomas[i].nivel}) <i onclick="removeLang(${idiomas[i].id})"> X </i></p>`
     }
+}
+
+function removeLang(id) {
+    $.ajax({
+        url: 'http://localhost:3001/deleteLang',
+        method: 'DELETE',
+        data: {
+            id: id
+        }, 
+        success: function(res) {
+            div.innerHTML = ''
+            atualizarIdiomas(res)
+        }
+    })
 }

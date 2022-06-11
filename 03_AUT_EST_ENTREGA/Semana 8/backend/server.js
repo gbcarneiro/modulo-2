@@ -76,41 +76,20 @@ app.get('/dados', (req, res) => {
 	insertDB();
 }); 
 
+app.delete('/deleteLang', (req, res) => {
+	const { id } = req.body
 
-app.get('/experiencia', (req, res) => {
-	async function insertDB() {
-		let db = await sqlite.open({ filename: './curriculoDatabase.db', driver: sqlite3.Database});
+	async function deleteDB() {
+		const db = await sqlite.open({ filename: './curriculoDatabase.db', driver: sqlite3.Database})
+		await db.run(`DELETE FROM idiomas WHERE id = ${id}`)
+		const idiomas = await db.all('SELECT * FROM idiomas');
+		res.status(200).send(idiomas)
 
-		const experiencia = await db.get('SELECT * FROM experiencia');
-
-		res.json(experiencia);
-		db.close();
+		db.close()
 	}
 
-	insertDB(); 
-})
-
-app.get('/formacao', (req, res) => {
-	async function insertDB() {
-		let db = await sqlite.open({ filename: './curriculoDatabase.db', driver: sqlite3.Database});
-		const formacao = await db.get('SELECT * FROM formacao'); 
-		res.json(formacao);
-		db.close();
-	}
-
-	insertDB(); 
-})
-
-app.get('/idiomas', (req, res) => {
-	async function insertDB() {
-		let db = await sqlite.open({ filename: './curriculoDatabase.db', driver: sqlite3.Database});
-		const idiomas = await db.get('SELECT * FROM idiomas');
-		res.json(idiomas)
-		db.close();
-	}
-
-	insertDB(); 
-})
+	deleteDB()
+}) 
 
 app.listen(port, () => {
 	console.log(`Server running at http://localhost:${port}`);
