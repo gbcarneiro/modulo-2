@@ -3,7 +3,7 @@ const port = 3001
 const bodyParser = require('body-parser'); 
 
 const nodemailer = require('nodemailer');
-const SMTP_CONFIG = require('./config/smtp')
+const SMTP_CONFIG = require('./.env')
 
 const app = express(); 
 const cors = require('cors');
@@ -20,33 +20,28 @@ app.use(express.json());
 
 app.post('/contato', (req, res) => {
 
-	const { name, phone, email, text } = req.body
+	const { nome, fone, email, texto } = req.body
  
 	async function sendEmail() {
-		const transporter =  nodemailer.createTransport({
+		var transport = nodemailer.createTransport({
 			host: SMTP_CONFIG.host,
 			port: SMTP_CONFIG.port,
-			secure: false,
 			auth: {
-				user: SMTP_CONFIG.user,
-				pass: SMTP_CONFIG.pass,
-			},
-			tls: {
-				rejectUnauthorized: false
+			  user: SMTP_CONFIG.auth.user,
+			  pass: SMTP_CONFIG.auth.pass,
 			}
-		});
+		  });
 
-		let sendMessage = await transporter.sendMail({
-			text: "olá", 
-			subject: "Assunto do email", 
-			from: 'Gabriel <gabriel.carneiro@sou.inteli.edu.br>',
-			to: ["gabriel.carneiro@sou.inteli.edu.br", "gabrielcarneiro.geek@gmail.com"], 
+		let sendMessage = await transport.sendMail({
+			text: texto, 
+			subject: `${nome} - Curriculo`, 
+			from: `${nome} - ${fone} <${email}>`,
+			to: SMTP_CONFIG.to, 
 		})
 
 
 		console.log("Message sent: ", sendMessage.messageId, sendMessage)
 	}
-
 
 	sendEmail()
 })
