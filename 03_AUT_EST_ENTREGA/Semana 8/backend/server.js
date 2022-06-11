@@ -46,6 +46,23 @@ app.post('/contato', (req, res) => {
 	sendEmail()
 })
 
+app.put('/editLang', (req, res) => {
+	const { language } = req.body
+	let langLevel = language.split(' ')
+
+	async function insertDB() {
+		const db = await sqlite.open({ filename: './curriculoDatabase.db', driver: sqlite3.Database})
+
+		await db.run(`INSERT INTO idiomas (idioma, nivel) VALUES (?, ?)`, [langLevel[0], langLevel[1]])
+		const idiomas = await db.all('SELECT * FROM idiomas');
+		res.status(200).send(idiomas)
+
+		db.close()
+	}
+
+	insertDB();
+})
+
 app.get('/dados', (req, res) => {
 	async function insertDB() {
 		let db = await sqlite.open({ filename: './curriculoDatabase.db', driver: sqlite3.Database});

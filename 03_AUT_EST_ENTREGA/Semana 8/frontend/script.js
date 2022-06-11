@@ -83,3 +83,45 @@ function sendMessage() {
         contentType: "application/json; charset=utf-8" 
     })
 }
+
+
+const div = document.querySelector("#langContent")
+const input = document.createElement('input')
+
+function addLangInput() {
+    input.setAttribute('id', 'novoIdioma')
+    input.setAttribute('placeholder', 'digite um novo idioma e seu nível: Ingles Avançado')
+    div.appendChild(input)
+    div.innerHTML += ' <button id="addLang" onclick="addLanguage()">+</button>'
+}  
+
+function addLanguage() {
+    const newLangInput = document.querySelector('#novoIdioma')
+    const addBtn = document.querySelector("#addLang")
+
+    const newLang = newLangInput.value
+
+    addBtn.remove();
+    newLangInput.remove();
+
+
+    $.ajax({
+        url: 'http://localhost:3001/editLang',
+        method: 'PUT',
+        data: {
+            language: newLang
+        }, 
+        success: function(res) {
+            div.innerHTML = ''
+            atualizarIdiomas(res)
+        } 
+    })
+}
+
+function atualizarIdiomas(idiomas) {
+    div.innerHTML += '<button style="margin: 10px 0px;" onclick="addLangInput()">Adicionar Idioma</button>'
+
+    for (let i = 0; i < idiomas.length; i++) {
+        div.innerHTML += `<p>${idiomas[i].idioma} (${idiomas[i].nivel})</p>`
+    }
+}
