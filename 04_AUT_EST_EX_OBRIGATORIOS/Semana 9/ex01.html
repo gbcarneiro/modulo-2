@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+
+<body>
+    <input style="padding: 10px;" min="100" type="number" placeholder="Digite um número de 3 dígitos">
+    <button onclick="calc()" style="padding: 10px;">Calcular</button>
+
+    <script>
+        function calc() {
+            let valor = document.querySelector('input').value
+            let centena = Math.floor(valor / 100)
+
+            const h1 = document.createElement('h1')
+            const body = document.querySelector('body')
+
+            if (centena % 2 == 0) {
+                h1.innerText = `A centena do número ${valor} é ${centena} e é PAR`
+            } else {
+                h1.innerText = `A centena do número ${valor} é ${centena} e é IMPAR`
+            }
+
+            body.appendChild(h1)
+        }
+    </script>
+
+</body>
+
+</html>

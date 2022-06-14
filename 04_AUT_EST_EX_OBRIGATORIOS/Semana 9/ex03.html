@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+<body>
+    <input id="1" style="padding: 10px;" type="text" placeholder="Digite o primeiro nome">
+
+    <input id="2" style="padding: 10px;" type="text" placeholder="Digite o segundo nome">
+
+    <input id="3" style="padding: 10px;" type="text" placeholder="Digite o terceiro nome">
+
+    <button onclick="ordenar()">Ordenar</button>
+
+    <script>
+        function ordenar() {
+            let nomes = []
+            for (let i = 1; i <= 3; i++) {
+                nomes.push(document.getElementById(`${i}`).value)
+            }
+            nomes.sort()
+
+            const body = document.querySelector('body')
+            body.innerHTML += `<h1>${nomes[0]}, ${nomes[1]} e ${nomes[2]}</h1>`
+        }
+    </script>
+</body>
+</html>
