@@ -34,3 +34,4 @@ Minhas entregas estão definidas aqui:
 
 <a href="https://github.com/gbcarneiro/modulo-2/tree/main/04_AUT_EST_EX_OBRIGATORIOS/Semana%207"> 01/06/2022 - Resolução de problemas com algoritmos - Semana 7 </a>
 
+<a href="https://github.com/gbcarneiro/modulo-2/tree/main/04_AUT_EST_EX_OBRIGATORIOS/Semana%209"> 14/06/2022 - Resolução de problemas com algoritmos - Semana 9 </a>
