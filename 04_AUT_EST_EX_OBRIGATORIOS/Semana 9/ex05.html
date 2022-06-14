@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 5</title>
+</head>
+
+<body>
+
+    <input type="number" id="n1" placeholder="Digite um número">
+
+    <input type="number" id="n2" placeholder="Digite outro número">
+
+    <button onclick="calc()">Calcular números primos</button>
+
+    <script>
+        function calc() {
+            const n1 = Number(document.querySelector('#n1').value)
+            const n2 = Number(document.querySelector('#n2').value)
+            const body = document.querySelector('body')
+
+            let n
+            let nums = []
+            let primos = []
+
+
+            if (n1 < n2) {
+                for (let i = 1; i < n2 - 1; i++) {
+                    n = n1 + i
+                    nums.push(meio)
+
+                }
+            } else {
+                for (let i = 1; i < n1 - 1; i++) {
+                    n = n1 - i
+                    nums.push(n)
+                }
+            }
+
+            nums.map((num) => {
+                let d = 0
+				for (let count = 1; count <= num; count++) {
+						    if (num % count == 0) {
+                        d++;
+								}
+					    }
+
+                if (d == 2) {
+                    console.log(`${num} é primo`)
+                    primos.push(num)
+                } else
+                    console.log(`${num} não é primo`)
+
+            })
+
+            body.innerHTML = `Os números primos dentre o intervalo são : ${primos}`
+
+
+
+        }
+    </script>
+</body>
+
+</html>
